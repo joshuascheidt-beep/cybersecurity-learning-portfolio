@@ -21,5 +21,6 @@ Nmap helps security teams understand which hosts and services are exposed on a n
 
 - [View my TryHackMe Nmap completion achievement](https://tryhackme.com/room/nmap?utm_campaign=social_share&utm_medium=social&utm_content=share-completed-room&utm_source=copy&sharerId=6a2ce4065b8629fb7af768d6)
 - [My public TryHackMe profile](https://tryhackme.com/p/joshua.scheidt)
+- ![TryHackMe Nmap completion screenshot](../nmap-completion.png)
 
 *This entry documents a guided training room, not a professional penetration test or an assessment of a third-party network.*
