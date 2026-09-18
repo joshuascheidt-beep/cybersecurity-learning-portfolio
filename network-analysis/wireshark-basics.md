@@ -38,7 +38,7 @@ Wireshark is useful to security analysts for examining network communications, i
 - [View my TryHackMe Wireshark completion achievement](https://tryhackme.com/room/wiresharkthebasics?utm_campaign=social_share&utm_medium=social&utm_content=share-completed-room&utm_source=copy&sharerId=6a2ce4065b8629fb7af768d6)
 - Completion status: **100% — all six tasks completed**
 - [My public TryHackMe profile](https://tryhackme.com/p/joshua.scheidt)
-- ![Wireshark 100% completion screenshot](../wireshark-completion.png)
+- ![Wireshark 100% completion screenshot](../wireshark-completion.png.png)
 
 ## Next Steps
 Expand this write-up with sanitized examples of filters, packet observations, and conclusions from an authorized lab exercise.
