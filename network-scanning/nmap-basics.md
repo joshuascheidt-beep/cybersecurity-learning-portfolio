@@ -14,8 +14,28 @@ Completed the TryHackMe *Nmap: The Basics* room as part of my hands-on cybersecu
 ## Security Relevance
 
 Nmap helps security teams understand which hosts and services are exposed on a network. This information can support asset discovery, authorized vulnerability assessments, and investigation of unexpected network services.
+## Hands-On Command Analysis
 
-## Completion Evidence
+### Command 1: Service and Version Detection
+
+```bash
+nmap -sV <LAB_TARGET_IP>
+```
+
+**Purpose:** Scan a host to identify open ports and attempt to determine the services and software versions running on them.
+
+**Flag explanation:**
+- `nmap`: Launches the network scanning tool.
+- `-sV`: Enables service and version detection.
+- `<LAB_TARGET_IP>`: Placeholder for an authorized TryHackMe target address.
+
+**My lab results:**
+
+_To be completed after running the command against an authorized lab target._
+
+**What I learned:**
+
+_To be completed after reviewing the actual scan output._
 
 ## Completion Evidence
 
