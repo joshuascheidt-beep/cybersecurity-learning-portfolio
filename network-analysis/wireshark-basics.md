@@ -3,38 +3,40 @@
 ## Training Platform
 TryHackMe
 
+## Completion Status
+**Completed — 100%**
+
+Room: https://tryhackme.com/room/wiresharkthebasics
+
+Public profile: https://tryhackme.com/p/joshua.scheidt
+
 ## Overview
-Completed the TryHackMe "Wireshark: The Basics" room to develop foundational skills in network traffic analysis and packet inspection.
+Completed the TryHackMe "Wireshark: The Basics" room, focused on understanding Wireshark and analyzing network protocols and packet capture (PCAP) files.
 
-## Training Topics
-- Understanding the purpose of Wireshark as a network protocol analyzer
-- Working with packet capture (PCAP) files
-- Examining captured network packets
-- Identifying network protocols within packet captures
-- Interpreting packet information to better understand network communications
+## Completed Tasks
+1. Introduction
+2. Tool Overview
+3. Packet Dissection
+4. Packet Navigation
+5. Packet Filtering
+6. Conclusion
 
-## Tools and Technologies
-- Wireshark
-- PCAP files
-- Network protocols, including HTTP
+All six tasks are marked complete in my TryHackMe account.
 
-## Hands-On Experience
-Worked through guided packet-analysis exercises in an authorized TryHackMe environment.
-
-The training involved examining packet captures and using packet information to answer questions about network communications.
+## Skills and Concepts Covered
+- Navigating the Wireshark interface
+- Understanding packet structure and protocol information
+- Navigating packets within a capture
+- Using packet filtering concepts
+- Examining network traffic through PCAP analysis
 
 ## Cybersecurity Relevance
-Network traffic analysis supports security operations by helping analysts:
-- Investigate suspicious network activity
-- Identify protocols and communication patterns
-- Examine traffic associated with potential security incidents
-- Develop evidence-based findings from packet captures
+Wireshark is useful to security analysts for examining network communications, identifying protocols, investigating suspicious traffic, and supporting incident response.
 
-## Key Takeaway
-This training strengthened my understanding of how packet captures can provide visibility into network activity and support cybersecurity investigations.
+## Completion Evidence
+Screenshots of the room's 100% completion status and my TryHackMe completed-rooms profile are available.
 
-## Evidence
-TryHackMe completion badge or public profile link: To be added.
+## Next Steps
+Expand this write-up with sanitized examples of filters, packet observations, and conclusions from an authorized lab exercise.
 
-## Future Development
-I plan to document a sanitized packet-analysis exercise showing the specific filters, packets, observations, and conclusions from my own work.
+Note: This write-up documents training completion. It does not represent professional incident-response experience or claim findings that have not been documented.
