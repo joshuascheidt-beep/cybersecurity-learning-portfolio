@@ -47,9 +47,19 @@ Tcpdump helps security analysts inspect network communications, investigate unus
 
 **Scope:** This entry documents traffic observed during an authorized training exercise. No attack, compromise, or incident was established by this capture.
 
-### Command Executed
+**Command executed:**
 
-_To be added after the lab exercise._
+```bash
+sudo tcpdump -i ens5 -nn -c 5
+```
+
+**Command breakdown:**
+
+- `sudo`: Runs tcpdump with elevated privileges required for packet capture in this environment.
+- `tcpdump`: Captures and displays network packets.
+- `-i ens5`: Captures traffic on the `ens5` network interface.
+- `-nn`: Disables hostname and service-name resolution, displaying numeric IP addresses and port numbers.
+- `-c 5`: Stops after capturing five packets.
 
 ### Observed Results
 
