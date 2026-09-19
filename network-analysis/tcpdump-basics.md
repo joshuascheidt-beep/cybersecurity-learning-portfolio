@@ -17,7 +17,35 @@ Tcpdump helps security analysts inspect network communications, investigate unus
 
 ## Hands-On Command Analysis
 
-I will document a command I execute in an authorized lab, its actual output, and my interpretation of the results here.
+## Hands-On Command Analysis
+
+### Five-Packet TCP Capture
+
+**Tool:** tcpdump
+
+**Capture:** Five packet records collected from a lab network interface.
+
+**Observed traffic:** A TCP conversation between `10.64.157.3:22` and `10.64.109.134:32938`.
+
+### Observed Results
+
+| Packet | Direction | TCP flags | Payload length | Observation |
+|---|---|---|---|---|
+| 1 | Port 22 → Port 32938 | PSH, ACK | 188 bytes | Data sent from port 22 |
+| 2 | Port 32938 → Port 22 | ACK | 0 bytes | Acknowledged the first data segment |
+| 3 | Port 22 → Port 32938 | PSH, ACK | 364 bytes | Additional data sent |
+| 4 | Port 22 → Port 32938 | PSH, ACK | 196 bytes | Additional data sent |
+| 5 | Port 32938 → Port 22 | ACK | 0 bytes | Acknowledged data through sequence number 552 |
+
+### Analysis
+
+- Identified source and destination IP addresses and TCP ports from tcpdump output.
+- Recognized port 22 as commonly associated with SSH, while treating the application protocol as unconfirmed from packet summaries alone.
+- Distinguished data-carrying TCP segments from acknowledgment-only segments using the flags and payload lengths.
+- Observed that the final captured acknowledgment did not cover all data shown in the five-packet excerpt. The capture was too short to determine what happened next.
+- Learned that packet metadata can help explain communication patterns without revealing encrypted application content.
+
+**Scope:** This entry documents traffic observed during an authorized training exercise. No attack, compromise, or incident was established by this capture.
 
 ### Command Executed
 
