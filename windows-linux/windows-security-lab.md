@@ -35,7 +35,7 @@ An enabled Administrator account or multiple administrator memberships is not au
 
 ## Evidence
 
-_Sanitized screenshots will be added after the exercise._
+![Windows local account and administrator group review](../windows-account-review.png)
 
 ## Scope and Limitations
 
