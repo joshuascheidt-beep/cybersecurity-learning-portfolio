@@ -35,6 +35,8 @@ Wireshark is useful to security analysts for examining network communications, i
 
 ## Hands-On Packet Analysis
 
+![Wireshark TCP SYN packet analysis](../wireshark-tcp-handshake.png)
+
 ### TCP Connection Establishment and HTTP Request
 
 **Capture file:** `Exercise.pcapng` — TryHackMe training exercise.
