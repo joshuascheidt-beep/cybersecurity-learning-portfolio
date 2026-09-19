@@ -33,6 +33,7 @@ _To be added after completing the exercise._
 
 ## Completion Evidence
 
+- [View my TryHackMe tcpdump achievement](https://tryhackme.com/room/tcpdump?utm_campaign=social_share&utm_medium=social&utm_content=share-completed-room&utm_source=copy&sharerId=6a2ce4065b8629fb7af768d6)
 - [My public TryHackMe profile](https://tryhackme.com/p/joshua.scheidt)
 
 *This entry documents guided cybersecurity training. It does not represent professional incident-response work or analysis of a third-party network.*
