@@ -12,6 +12,7 @@ These projects document my hands-on cybersecurity training, including completed 
 | Wireshark: The Basics | Packet-analysis fundamentals and completion evidence | [Wireshark Lab](network-analysis/wireshark-basics.md) |
 | Nmap: The Basics | Service/version detection, six observed open TCP ports, and findings analysis | [Nmap Lab](network-scanning/nmap-basics.md) |
 | Tcpdump: The Basics | A five-packet TCP capture, command breakdown, flags, and acknowledgment analysis | [tcpdump Lab](network-analysis/tcpdump-basics.md) |
+| Windows Security Fundamentals | PowerShell account enumeration, administrator review, Security Event Log analysis, and event correlation | [Windows Security Lab](windows-linux/windows-security-lab.md) |
 
 **Lab scope:** These projects were completed in training environments. Findings are based on my documented exercises and do not represent professional incident-response engagements or third-party security assessments.
 
