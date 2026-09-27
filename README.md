@@ -1,43 +1,88 @@
 # Cybersecurity Learning Portfolio
 
 ## About Me
-I am an active-duty U.S. Marine with 17 years of experience in technical leadership, secure communications, and network operations. I am developing practical cybersecurity skills through structured training and independent labs as I prepare for a potential transition into the civilian cybersecurity workforce.
+
+I am an active-duty U.S. Marine with 17 years of experience in technical leadership, secure communications, network operations, training, and mission-critical systems.
+
+I am building on that background through hands-on cybersecurity training focused on security operations, network analysis, Windows security, and digital forensics. This portfolio documents not only the tools I am learning, but also how I analyze technical evidence, interpret results, and communicate my findings.
 
 ## Featured Hands-On Labs
 
-These projects document my hands-on cybersecurity training, including completed TryHackMe rooms, technical observations, and supporting evidence.
+These projects document hands-on cybersecurity investigations completed in authorized training environments. Each project includes technical observations, analysis, and supporting evidence.
 
-| Lab | What I Documented | View Project |
-|---|---|---|
-| Wireshark: The Basics | Packet-analysis fundamentals and completion evidence | [Wireshark Lab](network-analysis/wireshark-basics.md) |
-| Nmap: The Basics | Service/version detection, six observed open TCP ports, and findings analysis | [Nmap Lab](network-scanning/nmap-basics.md) |
-| Tcpdump: The Basics | A five-packet TCP capture, command breakdown, flags, and acknowledgment analysis | [tcpdump Lab](network-analysis/tcpdump-basics.md) |
+| **Lab** | **What I Documented** | **View Project** |
+| --- | --- | --- |
+| Wireshark: The Basics | TCP handshake analysis, packet inspection, protocol analysis, and completion evidence | [Wireshark Lab](network-analysis/wireshark-basics.md) |
+| Nmap: The Basics | Host/service discovery, service-version detection, six observed open TCP ports, and findings analysis | [Nmap Lab](network-scanning/nmap-basics.md) |
+| Tcpdump: The Basics | Five-packet TCP capture, command and flag analysis, TCP flags, and acknowledgment behavior | [tcpdump Lab](network-analysis/tcpdump-basics.md) |
 | Windows Security Fundamentals | PowerShell account enumeration, administrator review, Security Event Log analysis, and event correlation | [Windows Security Lab](windows-linux/windows-security-lab.md) |
 
-**Lab scope:** These projects were completed in training environments. Findings are based on my documented exercises and do not represent professional incident-response engagements or third-party security assessments.
+> **Lab Scope:** These projects were completed in authorized training environments. Findings are based on documented exercises and do not represent professional incident-response engagements or third-party security assessments.
 
-## Career Interests
-- Security Operations Center (SOC) Analyst
-- Cybersecurity Analyst
+## Technical Skills Demonstrated
+
+**Network Analysis**
+- Wireshark
+- tcpdump
+- TCP/IP traffic analysis
+- Packet filtering and inspection
+- TCP connection analysis
+
+**Network Discovery**
+- Nmap
+- Port scanning
+- Service and version detection
+- Network reconnaissance in authorized environments
+
+**Windows Security**
+- PowerShell
+- Local user and group enumeration
+- Administrator membership review
+- Windows Security Event Log analysis
+- Event filtering and correlation
+- Least-privilege analysis
+
+**Security Fundamentals**
+- Public-key cryptography
+- Hashing
+- Password-security concepts
+- John the Ripper in authorized training environments
+
+## Featured Investigation: Windows Event Correlation
+
+During my Windows Security lab, I used PowerShell to investigate Windows Security Event Log activity and correlate object-access events.
+
+I identified and analyzed Events 4656 and 4658 and correlated records using multiple data points, including:
+
+- Timestamp
+- Handle ID
+- Process ID
+- Process information
+- Security principal
+
+The exercise reinforced an important investigative principle: an Event ID alone does not establish malicious activity. Security events need to be evaluated in context and correlated with supporting evidence before reaching a conclusion.
+
+[View the Windows Security investigation](windows-linux/windows-security-lab.md)
+
+## Training and Education
+
+- **Google Cybersecurity Professional Certificate** — Completed
+- **CompTIA Security+** — In preparation
+- **B.S. Cybersecurity, Digital Forensics Concentration — American Military University** — Planned
+
+## Career Focus
+
+I am developing toward civilian cybersecurity roles where I can combine technical investigation with the leadership and operational experience developed throughout my Marine Corps career.
+
+Areas of interest include:
+
+- Security Operations Center (SOC) Analysis
+- Cybersecurity Analysis
 - Network Security
 - Digital Forensics
 
-## Training and Education
-- Google Cybersecurity Professional Certificate — Completed
-- CompTIA Security+ — In preparation
-- B.S. Cybersecurity, Digital Forensics concentration, American Military University — Planned
-
-## Hands-On Learning Areas
-- Network traffic analysis: Wireshark and tcpdump
-- Network discovery: Nmap
-- Operating systems: Windows and Linux
-- Cryptography: public-key cryptography and hashing
-- Security testing: John the Ripper in authorized lab environments
-
-## Lab Documentation
-This repository will contain write-ups of my authorized cybersecurity training exercises. Each write-up will describe the objective, environment, tools, methodology, observations, lessons learned, and relevance to defensive security.
-
 ## Portfolio Sections
+
 - [Network Analysis](network-analysis/)
 - [Network Scanning](network-scanning/)
 - [Windows and Linux](windows-linux/)
@@ -45,7 +90,26 @@ This repository will contain write-ups of my authorized cybersecurity training e
 - [Security Testing](security-testing/)
 
 ## Professional Background
-My military experience includes technical leadership, communications operations, training, and equipment accountability. The cybersecurity labs in this repository represent independent training, not professional cybersecurity employment.
+
+My Marine Corps experience includes technical leadership, secure communications, network operations, personnel development, training, and accountability for mission-critical technical equipment.
+
+The cybersecurity projects in this repository represent independent hands-on training rather than professional cybersecurity employment. My goal is to demonstrate how I am applying an established technical and operational background to cybersecurity analysis.
+
+## Current Development
+
+I am continuing to expand this portfolio through hands-on labs involving:
+
+- Windows and Linux security
+- Network traffic analysis
+- Security monitoring and investigation
+- PowerShell
+- Security+ concepts
+- Digital forensics
+- Defensive security workflows
+
+As my technical capabilities develop, additional investigations and projects will be added with supporting evidence and documented analysis.
 
 ## Contact
-Connect with me on LinkedIn: www.linkedin.com/in/joshua-scheidt-714561328
+
+**LinkedIn:** [Joshua Scheidt](https://www.linkedin.com/in/joshua-scheidt-714561328)
+
