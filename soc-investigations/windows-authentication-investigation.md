@@ -189,6 +189,15 @@ Format-Table Timestamp, Source, Activity, Details -AutoSize
 | 09:45:44 | Endpoint | Process Start | `net.exe` with `net view` |
 | 09:46:03 | Endpoint | Share Access Attempt | `\\FILESERVER01\Finance` |
 | 09:46:17 | Endpoint | Share Access Success | `\\FILESERVER01\Finance` |
+### Investigation Evidence
+
+The following PowerShell output shows the combined authentication and endpoint telemetry sorted chronologically.
+
+The correlation demonstrates the progression from repeated failed RemoteInteractive authentication attempts to a successful privileged login, followed by PowerShell execution, host and network discovery commands, and access to the Finance network share.
+
+![SOC Investigation Timeline](../soc-investigation-timeline.png)
+
+The timeline was created by normalizing the authentication and endpoint datasets into common `Timestamp`, `Source`, `Activity`, and `Details` fields before combining and sorting the events chronologically.
 
 ### Timeline Analysis
 
