@@ -131,3 +131,129 @@ Group-Object Account |
 Sort-Object Count -Descending |
 Select-Object Count, Name |
 Format-Table -AutoSize
+## Cross-Source Event Correlation
+
+After identifying the suspicious authentication sequence involving the `administrator` account, additional endpoint telemetry was reviewed to determine what activity occurred after the successful login.
+
+Two synthetic telemetry sources were correlated:
+
+- Windows authentication events
+- Endpoint process and resource-access events
+
+PowerShell was used to normalize both datasets into a common timeline.
+
+### PowerShell Correlation
+
+```powershell
+$authTimeline = $events |
+Where-Object {$_.Account -eq 'administrator'} |
+Select-Object @{Name='Timestamp';Expression={[datetime]$_.Timestamp}},
+              @{Name='Source';Expression={'Authentication'}},
+              @{Name='Activity';Expression={
+                  if ($_.EventID -eq '4625') {'Failed Logon'}
+                  elseif ($_.EventID -eq '4624') {'Successful Logon'}
+              }},
+              @{Name='Details';Expression={
+                  "SourceIP=$($_.SourceIP); LogonType=$($_.LogonType)"
+              }}
+
+$endpointTimeline = $endpoint |
+Where-Object {$_.Account -eq 'administrator'} |
+Select-Object @{Name='Timestamp';Expression={[datetime]$_.Timestamp}},
+              @{Name='Source';Expression={'Endpoint'}},
+              @{Name='Activity';Expression={$_.Action}},
+              @{Name='Details';Expression={
+                  if ($_.CommandLine) {
+                      "$($_.Process) -> $($_.CommandLine)"
+                  } else {
+                      "$($_.Process) -> $($_.Target)"
+                  }
+              }}
+
+$timeline = $authTimeline + $endpointTimeline
+
+$timeline |
+Sort-Object Timestamp |
+Format-Table Timestamp, Source, Activity, Details -AutoSize
+```
+
+### Correlated Timeline
+
+| Time | Source | Activity | Details |
+|---|---|---|---|
+| 09:44:11–09:44:37 | Authentication | Failed Logons | Seven failures from `10.10.50.91`, Logon Type 10 |
+| 09:45:02 | Authentication | Successful Logon | `administrator` authenticated from `10.10.50.91` using Logon Type 10 |
+| 09:45:18 | Endpoint | Process Start | `powershell.exe` |
+| 09:45:31 | Endpoint | Process Start | `whoami.exe` |
+| 09:45:36 | Endpoint | Process Start | `hostname.exe` |
+| 09:45:44 | Endpoint | Process Start | `net.exe` with `net view` |
+| 09:46:03 | Endpoint | Share Access Attempt | `\\FILESERVER01\Finance` |
+| 09:46:17 | Endpoint | Share Access Success | `\\FILESERVER01\Finance` |
+
+### Timeline Analysis
+
+The correlated timeline showed that a successful privileged RemoteInteractive authentication was followed 16 seconds later by the launch of PowerShell.
+
+The session subsequently executed:
+
+- `whoami` — identifies the current user/security context
+- `hostname` — identifies the local computer
+- `net view` — can be used to identify computers or shared resources available on the network
+
+The sequence was followed by attempted and successful access to the `\\FILESERVER01\Finance` network share.
+
+The activity from the first failed authentication attempt through successful Finance share access occurred within approximately two minutes.
+
+Individually, the observed commands can have legitimate administrative uses. However, their proximity to repeated authentication failures, a successful privileged RemoteInteractive login, and subsequent network-share access increased the investigative significance of the overall sequence.
+
+## Analyst Assessment
+
+The activity was classified as **suspicious and requiring escalation for further investigation**.
+
+The assessment was based on the correlation of multiple events rather than any single indicator:
+
+1. Repeated failed authentication attempts targeted a privileged account.
+2. A successful RemoteInteractive authentication followed the failures.
+3. PowerShell launched shortly after authentication.
+4. System and network discovery commands were executed.
+5. The session subsequently accessed a potentially sensitive Finance network share.
+
+The available evidence does **not** establish that the session was unauthorized, that sensitive financial files were opened, or that data was copied or exfiltrated.
+
+Additional investigation would be required before classifying the activity as a confirmed security incident.
+
+## Recommended Next Steps
+
+Further investigation should include:
+
+- Determine whether `10.10.50.91` is an authorized administrative workstation.
+- Verify whether the administrator account owner initiated the RemoteInteractive session.
+- Review historical authentication activity for the administrator account.
+- Review endpoint telemetry from `WS-ADMIN-02`.
+- Review file-access auditing for `\\FILESERVER01\Finance`.
+- Determine which files, if any, were opened, modified, or copied.
+- Review network telemetry for activity following the successful authentication.
+- Investigate external IP addresses identified during the investigation using appropriate threat-intelligence sources.
+
+Because `10.10.50.91` is a private internal IP address, public IP reputation services would not establish the reputation of that internal host. The internal asset would instead need to be identified using organizational asset, DHCP, DNS, EDR, or similar telemetry.
+
+## Investigation Limitations
+
+This investigation used a limited synthetic dataset created for training purposes.
+
+The available telemetry did not include:
+
+- Historical account baselines
+- Asset ownership information
+- Authentication failure reason codes
+- Full process command lines
+- EDR telemetry
+- Detailed file-access events
+- Network connection logs
+- MFA records
+- User validation
+- Data-transfer or exfiltration evidence
+
+These limitations prevent a definitive determination of whether the observed activity was authorized or malicious.
+
+The appropriate outcome based on the available evidence was therefore escalation for additional investigation rather than declaring a confirmed compromise.
