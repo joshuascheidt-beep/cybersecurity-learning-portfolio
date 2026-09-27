@@ -16,6 +16,7 @@ These projects document hands-on cybersecurity investigations completed in autho
 | Nmap: The Basics | Host/service discovery, service-version detection, six observed open TCP ports, and findings analysis | [Nmap Lab](network-scanning/nmap-basics.md) |
 | Tcpdump: The Basics | Five-packet TCP capture, command and flag analysis, TCP flags, and acknowledgment behavior | [tcpdump Lab](network-analysis/tcpdump-basics.md) |
 | Windows Security Fundamentals | PowerShell account enumeration, administrator review, Security Event Log analysis, and event correlation | [Windows Security Lab](windows-linux/windows-security-lab.md) |
+| **SOC Investigation — Windows Authentication** | Investigated repeated Windows authentication failures and privileged account activity using PowerShell. Correlated authentication and endpoint telemetry to reconstruct a timeline, analyze post-authentication behavior, and determine whether escalation was warranted. | [View Investigation](soc-investigations/windows-authentication-investigation.md) |
 
 > **Lab Scope:** These projects were completed in authorized training environments. Findings are based on documented exercises and do not represent professional incident-response engagements or third-party security assessments.
 
