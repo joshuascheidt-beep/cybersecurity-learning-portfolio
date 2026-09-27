@@ -150,6 +150,18 @@ No malicious activity was established during this investigation. The observed ev
 - Windows Security Event Log analysis
 - PowerShell `Get-WinEvent`
 - Event ID filtering
+- ### Event Correlation Evidence
+
+The screenshot below shows a PowerShell query correlating Windows Security Events 4656 and 4658 using multiple fields.
+
+Both events were recorded at the same timestamp and contained the same:
+
+- Handle ID: `0x604`
+- Process ID: `0xd18`
+
+This provided additional evidence that the records were associated with the same object-access activity.
+
+![Windows Security Event Correlation](../windows-event-correlation.png)
 - Time-based event filtering
 - Object-access auditing
 - Event correlation
